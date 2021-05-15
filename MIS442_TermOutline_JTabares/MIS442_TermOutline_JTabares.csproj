@@ -192,6 +192,7 @@
     <Compile Include="CustomerDisplay.aspx.designer.cs">
       <DependentUpon>CustomerDisplay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CustomerList.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

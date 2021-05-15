@@ -11,17 +11,15 @@
         <div>
             CONTACT DISPLAY<br />
             <br />
-            <asp:Label ID="Label1" runat="server" Text="Customer ID: "></asp:Label>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <br />
             <br />
-            <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:ListBox ID="lstBoxCustomers" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="CustomerID" Width="294px"></asp:ListBox>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupportConnectionString %>" SelectCommand="SELECT * FROM [Customers]"></asp:SqlDataSource>
             <br />
             <br />
             <br />
-            <asp:Button ID="btnRemove" runat="server" Text="Remove Contact" />
-            <asp:Button ID="btnEmpty" runat="server" Text="Empty List" />
+            <asp:Button ID="btnRemove" runat="server" Text="Remove Contact" OnClick="btnRemove_Click" />
+            <asp:Button ID="btnEmpty" runat="server" Text="Empty List" OnClick="btnEmpty_Click" />
             <asp:Button ID="btnSelect" runat="server" Text="Select Additional Customers" />
             <br />
         </div>

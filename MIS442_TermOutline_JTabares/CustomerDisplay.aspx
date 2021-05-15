@@ -9,8 +9,21 @@
             <asp:DropDownList ID="ddlCustomers" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True">
             </asp:DropDownList>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupportConnectionString %>" SelectCommand="SELECT * FROM [Customers] ORDER BY [Name]"></asp:SqlDataSource>
+            <asp:Label ID="lblErrorMessage" runat="server" Text="Label"></asp:Label>
             <asp:Button ID="btnAdd" runat="server" Text="Add to Contact List" OnClick="btnAdd_Click" />
-            <asp:Button ID="btnDisplay" runat="server" Text="Display Contact List" />
+            <asp:Button ID="btnDisplay" runat="server" Text="Display Contact List" OnClick="btnDisplay_Click" />
+            <asp:SqlDataSource ID="GridViewDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupportConnectionString %>" SelectCommand="SELECT * FROM [Customers] WHERE ([CustomerID] = @CustomerID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="ddlCustomers" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
+        </p>
+        <p>
+            <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
+            <asp:Label ID="lblCityStateZip" runat="server" Text="City State Zip"></asp:Label>
+            <asp:Label ID="lblPhone" runat="server" Text="Phone"></asp:Label>
+            <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
+        </p>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="GridViewDataSource">
                 <Columns>
                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" InsertVisible="False" ReadOnly="True" SortExpression="CustomerID" />
@@ -23,12 +36,14 @@
                     <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="GridViewDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupportConnectionString %>" SelectCommand="SELECT * FROM [Customers] WHERE ([CustomerID] = @CustomerID)">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="ddlCustomers" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
-                </SelectParameters>
-            </asp:SqlDataSource>
-        </p>
+            <p>
+                &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </div>
 
 </asp:Content>

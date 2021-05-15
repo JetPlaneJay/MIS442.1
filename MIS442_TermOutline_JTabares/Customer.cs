@@ -23,5 +23,10 @@ namespace MIS442_TermOutline_JTabares
 
         public string Email { get; set; }
 
+        public string ContactDisplay()
+        {
+            return Name + ": " + Phone + "; " + Email;
+        }
+
     }
 }
